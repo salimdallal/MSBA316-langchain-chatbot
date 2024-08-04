@@ -1,5 +1,5 @@
 import os
-#os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
 import openai
 import streamlit as st
 from datetime import datetime
