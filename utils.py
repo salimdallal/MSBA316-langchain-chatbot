@@ -1,9 +1,41 @@
 import os
+#os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
 import openai
 import streamlit as st
 from datetime import datetime
 from langchain_openai import ChatOpenAI
 from langchain_community.chat_models import ChatOllama
+
+
+
+def get_openai_api_key():
+    """Retrieves the OPENAI_API_KEY from various sources.
+
+    Returns:
+    str: The OPENAI_API_KEY if found, otherwise None.
+    """
+
+    # Check Codespace secrets first
+    codespace_secret = os.environ.get('OPENAI_API_KEY')
+    if codespace_secret:
+        return codespace_secret
+
+    # Check environment variables
+    env_secret = os.getenv('OPENAI_API_KEY')
+    if env_secret:
+        return env_secret
+
+    # Check Streamlit secrets as a fallback
+    try:
+        streamlit_secret = st.secrets["OPENAI_API_KEY"]
+        return streamlit_secret
+    except KeyError:
+        pass
+
+    return None
+
+
+
 
 #decorator
 def enable_chat_history(func):
@@ -75,17 +107,18 @@ def choose_custom_openai_key():
     return model, openai_api_key
 
 def configure_llm():
-    available_llms = ["gpt-4o-mini","llama3.1:8b","use your openai api key"]
+    available_llms = ["gpt-4o-mini","use your openai api key"]
     llm_opt = st.sidebar.radio(
         label="LLM",
         options=available_llms,
         key="SELECTED_LLM"
         )
+    openai_api_key=get_openai_api_key()
 
     if llm_opt == "llama3.1:8b":
         llm = ChatOllama(model="llama3.1", base_url=st.secrets["OLLAMA_ENDPOINT"])
     elif llm_opt == "gpt-4o-mini":
-        llm = ChatOpenAI(model_name=llm_opt, temperature=0, streaming=True, api_key=st.secrets["OPENAI_API_KEY"])
+        llm = ChatOpenAI(model_name=llm_opt, temperature=0, streaming=True, api_key=openai_api_key)
     else:
         model, openai_api_key = choose_custom_openai_key()
         llm = ChatOpenAI(model_name=model, temperature=0, streaming=True, api_key=openai_api_key)
