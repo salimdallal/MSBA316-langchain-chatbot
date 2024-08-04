@@ -1,3 +1,7 @@
+import os
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
+
+
 from langchain_core.callbacks import BaseCallbackHandler
 
 class StreamHandler(BaseCallbackHandler):
