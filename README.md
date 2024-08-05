@@ -1,6 +1,6 @@
 # Chatbot Implementations with Langchain + Streamlit
 
-<!-- [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/shashankdeshpande/langchain-chatbot?quickstart=1)
+<!-- [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/salimdallal/MSBA316-langchain-chatbot?quickstart=1)
 https://github.com/codespaces/turbo-journey-x76rprjrxq4cvqxp -->
 
 Langchain is a powerful framework designed to streamline the development of applications using Language Models (LLMs). \
