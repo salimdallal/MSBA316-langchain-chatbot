@@ -1,7 +1,7 @@
 # Chatbot Implementations with Langchain + Streamlit
 
-<!-- [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/salimdallal/MSBA316-langchain-chatbot?quickstart=1)
-https://github.com/codespaces/turbo-journey-x76rprjrxq4cvqxp -->
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/salimdallal/MSBA316-langchain-chatbot?quickstart=1)
+
 
 Langchain is a powerful framework designed to streamline the development of applications using Language Models (LLMs). \
 It provides a comprehensive integration of various components, simplifying the process of assembling them to create robust applications.
@@ -14,10 +14,7 @@ Here are a few examples of chatbot implementations using Langchain and Streamlit
 
 
 ## <img src="https://streamlit.io/images/brand/streamlit-mark-color.png" width="40" height="22"> Streamlit App
-Created a multi-page streamlit app containing all sample chatbot use cases. \
-You can access this app through this link: [langchain-chatbot.streamlit.app](https://langchain-chatbot.streamlit.app)
-
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://langchain-chatbot.streamlit.app/)
+Created a multi-page streamlit app containing all sample chatbot use cases. Streamlit cloud does not work well with Chroma. As such the app is not functional and only codespace works. 
 
 ## 🖥️ Running locally
 ```shell
